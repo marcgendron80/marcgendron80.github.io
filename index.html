@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Marc Gendron | System Architect Validator</title>
+<title>Marc Gendron | Network Technician</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -46,7 +46,7 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:18px 6%;display:flex;ali
 h1{font-family:'Orbitron',sans-serif;font-size:clamp(2rem,5vw,3.4rem);font-weight:900;line-height:1.1;margin-bottom:16px}
 h1 .gradient{background:linear-gradient(135deg,var(--gold-light),var(--purple-light),var(--blue-light));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero-sub{color:var(--muted);font-size:1.05rem;line-height:1.7;margin-bottom:36px;max-width:480px}
+.hero-sub{color:var(--muted);font-size:1.05rem;line-height:1.7;margin-bottom:36px;max-width:580px}
 .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
 .btn-primary{background:linear-gradient(135deg,var(--purple),var(--blue));color:#fff;padding:14px 32px;
   border-radius:50px;font-family:'Orbitron',sans-serif;font-size:.8rem;letter-spacing:.08em;text-decoration:none;
@@ -150,7 +150,7 @@ footer span{color:var(--gold)}
 
 <!-- NAV -->
 <nav>
-  <div class="logo">M.// ARCHITECT</div>
+  <div class="logo">MARC GENDRON</div>
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="#certs" data-i18n="nav_certs">Certifications</a></li>
@@ -163,16 +163,15 @@ footer span{color:var(--gold)}
       <button class="lang-btn active" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('fr')">FR</button>
     </div>
-    <a href="#contact" class="nav-cta" data-i18n="nav_hire">HIRE ME</a>
+    <a href="#contact" class="nav-cta" data-i18n="nav_hire">CONTACT ME</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-content">
-    <div class="hero-badge fade-up d1"><span></span> <span data-i18n="hero_badge">AVAILABLE FOR OPPORTUNITIES</span></div>
     <h1 class="fade-up d2">SYSTEM<br><span class="gradient">ARCHITECT</span><br>VALIDATOR</h1>
-    <p class="hero-sub fade-up d3" data-i18n="hero_sub">System Architect, Technical Dispatcher, and IT Technician bridging multi-platform environments. Specializing in workload management for junior teams, deep-level system troubleshooting, and building secure infrastructure from first principles.</p>
+    <p class="hero-sub fade-up d3" data-i18n="hero_sub">IT Technician at a Montreal-based MSP, I work daily on Microsoft 365, Entra ID, and Active Directory environments for SMB clients. I handle endpoint deployment and compliance via Intune. Certified MS-900, AEC Network Management, and Microsoft Applied Skills in Active Directory, Azure, Entra ID, and AI agents.</p>
     <div class="hero-btns fade-up d4">
       <a href="#projects" class="btn-primary" data-i18n="hero_btn1">VIEW MY WORK</a>
       <a href="#contact" class="btn-outline" data-i18n="hero_btn2">GET IN TOUCH</a>
@@ -258,24 +257,6 @@ footer span{color:var(--gold)}
   <div class="divider"></div>
   <p class="section-sub" data-i18n="proj_sub">Real-world infrastructure projects, automation pipelines, and system architecture work.</p>
   <div class="projects-grid">
-    <div class="project-card">
-      <span class="project-tag" data-i18n="ptag1">MANAGEMENT</span>
-      <div class="project-name" data-i18n="pname1">Effort Points Workload Tracking</div>
-      <p class="project-desc" data-i18n="pdesc1">Designed and implemented a spreadsheet-based methodology to quantify technical complexity. This system effectively tracks and balances task loads for a team of junior IT technicians.</p>
-      <div class="tech-tags"><span class="tech-tag">Metrics</span><span class="tech-tag">Management</span><span class="tech-tag">Operations</span></div>
-    </div>
-    <div class="project-card">
-      <span class="project-tag" data-i18n="ptag2">SYSTEM CONFIG</span>
-      <div class="project-name" data-i18n="pname2">Zsh Shell Configuration & Troubleshooting</div>
-      <p class="project-desc" data-i18n="pdesc2">Investigated and resolved complex terminal prompt behaviors, identifying native shell-level zsh correction features over third-party tool interference for a highly optimized CLI environment.</p>
-      <div class="tech-tags"><span class="tech-tag">macOS</span><span class="tech-tag">Zsh</span><span class="tech-tag">CLI</span></div>
-    </div>
-    <div class="project-card">
-      <span class="project-tag" data-i18n="ptag3">MIGRATION</span>
-      <div class="project-name" data-i18n="pname3">Cross-Platform Mobile Migration</div>
-      <p class="project-desc" data-i18n="pdesc3">Managed a complete personal enterprise ecosystem migration from Android to iPhone 15 Pro Max, including the secure transfer and reconfiguration of complex authentication backups.</p>
-      <div class="tech-tags"><span class="tech-tag">iOS</span><span class="tech-tag">Android</span><span class="tech-tag">Auth</span></div>
-    </div>
     <div class="project-card">
       <span class="project-tag" data-i18n="ptag4">LOCAL AI</span>
       <div class="project-name" data-i18n="pname4">Local LLM Orchestration</div>
@@ -370,9 +351,8 @@ footer span{color:var(--gold)}
 const t={
   en:{
     nav_certs:'Certifications',nav_skills:'Skills',nav_projects:'Projects',
-    nav_education:'Education',nav_contact:'Contact',nav_hire:'HIRE ME',
-    hero_badge:'AVAILABLE FOR OPPORTUNITIES',
-    hero_sub:'System Architect, Technical Dispatcher, and IT Technician bridging multi-platform environments. Specializing in workload management for junior teams, deep-level system troubleshooting, and building secure infrastructure from first principles.',
+    nav_education:'Education',nav_contact:'Contact',nav_hire:'CONTACT ME',
+    hero_sub:'IT Technician at a Montreal-based MSP, I work daily on Microsoft 365, Entra ID, and Active Directory environments for SMB clients. I handle endpoint deployment and compliance via Intune. Certified MS-900, AEC Network Management, and Microsoft Applied Skills in Active Directory, Azure, Entra ID, and AI agents.',
     hero_btn1:'VIEW MY WORK',hero_btn2:'GET IN TOUCH',
     stat1:'CERTIFICATIONS',stat2:'IN PROGRESS',stat3:'CURIOSITY',
     certs_tag:'✦ Credentials',certs_title:'Certifications',
@@ -385,12 +365,6 @@ const t={
     skill_infra:'Infrastructure Config',skill_tui:'CLI & TUI Environments (Elia, Oterm)',skill_sec:'Security Hardening',
     proj_tag:'✦ Lab Work',proj_title:'Tech Projects & Labs',
     proj_sub:'Real-world infrastructure projects, automation pipelines, and system architecture work.',
-    ptag1:'MANAGEMENT',pname1:'Effort Points Workload Tracking',
-    pdesc1:'Designed and implemented a spreadsheet-based methodology to quantify technical complexity. This system effectively tracks and balances task loads for a team of junior IT technicians.',
-    ptag2:'SYSTEM CONFIG',pname2:'Zsh Shell Configuration & Troubleshooting',
-    pdesc2:'Investigated and resolved complex terminal prompt behaviors, identifying native shell-level zsh correction features over third-party tool interference for a highly optimized CLI environment.',
-    ptag3:'MIGRATION',pname3:'Cross-Platform Mobile Migration',
-    pdesc3:'Managed a complete personal enterprise ecosystem migration from Android to iPhone 15 Pro Max, including the secure transfer and reconfiguration of complex authentication backups.',
     ptag4:'LOCAL AI',pname4:'Local LLM Orchestration',
     pdesc4:'Configured and optimized local AI interfaces utilizing Msty Studio and Ollama. Managed deployments of models including Gemma 4, Qwen 2.5, and DeepSeek for localized code generation.',
     ptag5:'OPTIMIZATION',pname5:'Resource-Optimized System Management',
@@ -410,9 +384,8 @@ const t={
   },
   fr:{
     nav_certs:'Certifications',nav_skills:'Compétences',nav_projects:'Projets',
-    nav_education:'Formation',nav_contact:'Contact',nav_hire:'ENGAGEZ-MOI',
-    hero_badge:'OUVERT AUX OPPORTUNITÉS',
-    hero_sub:"Architecte système, répartiteur technique et technicien informatique reliant des environnements multi-plateformes. Spécialisé dans la gestion de la charge de travail pour les équipes juniors, le dépannage système approfondi et la construction d'infrastructures sécurisées.",
+    nav_education:'Formation',nav_contact:'Contact',nav_hire:'ME CONTACTER',
+    hero_sub:"Technicien informatique au sein d'un MSP à Montréal, j'interviens quotidiennement sur des environnements Microsoft 365, Entra ID et Active Directory pour une clientèle PME. Je gère le déploiement et la conformité des postes via Intune. Certifié MS-900, AEC Gestion des réseaux, et Microsoft Applied Skills en Active Directory, Azure, Entra ID et agents IA.",
     hero_btn1:'VOIR MES PROJETS',hero_btn2:'ME CONTACTER',
     stat1:'CERTIFICATIONS',stat2:'EN COURS',stat3:'CURIOSITÉ',
     certs_tag:'✦ Accréditations',certs_title:'Certifications',
@@ -425,12 +398,6 @@ const t={
     skill_infra:'Config. Infrastructure',skill_tui:'Environnements CLI & TUI (Elia, Oterm)',skill_sec:'Durcissement Sécurité',
     proj_tag:'✦ Travaux de Lab',proj_title:'Projets Tech & Laboratoires',
     proj_sub:"Projets d'infrastructure réels, pipelines d'automatisation et travaux d'architecture système.",
-    ptag1:'GESTION',pname1:'Suivi de Charge de Travail par Points d\'Effort',
-    pdesc1:"Conception et mise en œuvre d'une méthodologie sur tableur pour quantifier la complexité technique. Ce système suit et équilibre efficacement les charges de tâches pour une équipe de techniciens informatiques juniors.",
-    ptag2:'CONFIG SYSTÈME',pname2:'Configuration et Dépannage du Shell Zsh',
-    pdesc2:"Investigation et résolution de comportements complexes de l'invite de commande, identifiant les fonctionnalités de correction natives de zsh plutôt que l'interférence d'outils tiers pour un environnement CLI optimisé.",
-    ptag3:'MIGRATION',pname3:'Migration Mobile Multi-Plateformes',
-    pdesc3:"Gestion d'une migration complète d'écosystème d'entreprise d'Android vers un iPhone 15 Pro Max, incluant le transfert sécurisé et la reconfiguration des sauvegardes d'authentification complexes.",
     ptag4:'IA LOCALE',pname4:'Orchestration LLM Locale',
     pdesc4:"Configuration et optimisation d'interfaces IA locales utilisant Msty Studio et Ollama. Gestion du déploiement de modèles incluant Gemma 4, Qwen 2.5 et DeepSeek pour la génération de code localisée.",
     ptag5:'OPTIMISATION',pname5:'Gestion Système Optimisée',
@@ -438,7 +405,7 @@ const t={
     ptag6:'DOCUMENTATION',pname6:'Architecture de Connaissances Markdown',
     pdesc6:"Maintenance d'une documentation technique complète et gestion des favoris via un pipeline Obsidian Sync intégré à Raindrop.io pour la recherche d'informations structurées.",
     edu_tag:'✦ Formation',edu_title:'Éducation',
-    edu_sub:"Formation académique soutenant une expertise concrète en infrastructure et en systèmes.",
+    edu_sub:"Formation académique soutenant une expertise concrète en infrastructure et en sysèmes.",
     edu1_degree:'AEC — Réseautique Informatique',edu1_school:"Attestation d'études collégiales · Québec, Canada",
     edu1_year:'Fondamentaux de Réseautique · Routage & Commutation · Principes de Sécurité',
     edu2_degree:'Formation Technique Autodidacte',edu2_year:'Azure · Active Directory · Python · Architecture Réseau',
