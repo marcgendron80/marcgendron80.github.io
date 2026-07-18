@@ -4,7 +4,48 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Marc Gendron | Network Technician</title>
+<meta name="description" content="Marc Gendron — Network Technician in Montréal. Microsoft 365, Entra ID, Active Directory & Intune administration for SMB clients. MS-900 certified · AEC Network Management."/>
+<meta name="author" content="Marc Gendron"/>
+<meta name="theme-color" content="#080818"/>
+<link rel="canonical" href="https://gendrontech.ca/"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23fbbf24'/><stop offset='1' stop-color='%23a855f7'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='%23080818'/><text x='50' y='68' font-family='Arial,Helvetica,sans-serif' font-weight='900' font-size='44' text-anchor='middle' fill='url(%23g)'>MG</text></svg>"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<!-- Open Graph / social previews -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Marc Gendron"/>
+<meta property="og:title" content="Marc Gendron — Network Technician"/>
+<meta property="og:description" content="Microsoft 365, Entra ID, Active Directory & Intune administration. MS-900 certified, based in Montréal."/>
+<meta property="og:url" content="https://gendrontech.ca/"/>
+<meta property="og:image" content="https://gendrontech.ca/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:locale" content="en_CA"/>
+<meta property="og:locale:alternate" content="fr_CA"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Marc Gendron — Network Technician"/>
+<meta name="twitter:description" content="Microsoft 365, Entra ID, Active Directory & Intune administration. MS-900 certified, based in Montréal."/>
+<meta name="twitter:image" content="https://gendrontech.ca/og-image.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Marc Gendron",
+  "jobTitle": "Network Technician",
+  "url": "https://gendrontech.ca/",
+  "email": "mailto:marc-tech@outlook.com",
+  "address": {"@type": "PostalAddress", "addressLocality": "Montréal", "addressRegion": "QC", "addressCountry": "CA"},
+  "sameAs": [
+    "https://github.com/marcgendron80",
+    "https://www.linkedin.com/in/marcgendrontech",
+    "https://learn.microsoft.com/en-ca/users/marc-gendron-tech/",
+    "https://www.credly.com/badges/dae90fe1-f5e9-4cb3-a6f5-a156cf95f238/public_url"
+  ],
+  "knowsAbout": ["Microsoft 365", "Microsoft Entra ID", "Active Directory", "Microsoft Intune", "Microsoft Azure", "Windows Server", "Computer Networking"]
+}
+</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -142,17 +183,41 @@ footer span{color:var(--gold)}
 .fade-up{opacity:0;animation:fadeUp .7s ease forwards}
 .d1{animation-delay:.1s}.d2{animation-delay:.25s}.d3{animation-delay:.4s}.d4{animation-delay:.55s}
 
-@media(max-width:768px){.nav-links{display:none}.hero-stats{gap:24px}.hero-btns{flex-direction:column}}
+/* MOBILE NAV */
+.menu-btn{display:none;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:10px;
+  width:42px;height:38px;cursor:pointer;padding:0;flex-shrink:0}
+.menu-btn span{display:block;width:18px;height:2px;background:var(--text);margin:4px auto;border-radius:2px;transition:.3s}
+.menu-btn.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.menu-btn.open span:nth-child(2){opacity:0}
+.menu-btn.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+@media(max-width:768px){
+  .menu-btn{display:block}
+  .nav-cta{display:none}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;
+    background:rgba(8,8,24,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:8px 6% 16px}
+  .nav-links.open{display:flex}
+  .nav-links a{display:block;padding:14px 0;font-size:1rem;border-bottom:1px solid rgba(124,58,237,.12)}
+  .nav-links li:last-child a{border-bottom:none}
+  .hero-stats{gap:24px}.hero-btns{flex-direction:column}
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .fade-up{animation:none;opacity:1}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
 </style>
 </head>
 <body>
-<canvas id="bg"></canvas>
+<canvas id="bg" aria-hidden="true"></canvas>
 
 <!-- NAV -->
 <nav>
   <div class="logo">MARC GENDRON</div>
   <div class="nav-right">
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="#certs" data-i18n="nav_certs">Certifications</a></li>
       <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
       <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
@@ -160,17 +225,20 @@ footer span{color:var(--gold)}
       <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
     </ul>
     <div class="lang-toggle">
-      <button class="lang-btn active" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
     </div>
     <a href="#contact" class="nav-cta" data-i18n="nav_hire">CONTACT ME</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-content">
-    <h1 class="fade-up d2">SYSTEM<br><span class="gradient">ARCHITECT</span><br>VALIDATOR</h1>
+    <h1 class="fade-up d2"><span data-i18n="h1_a">NETWORK</span><br><span class="gradient" data-i18n="h1_b">TECHNICIAN</span></h1>
     <p class="hero-sub fade-up d3" data-i18n="hero_sub">IT Technician at a Montreal-based MSP, I work daily on Microsoft 365, Entra ID, and Active Directory environments for SMB clients. I handle endpoint deployment and compliance via Intune. Certified MS-900, AEC Network Management, and Microsoft Applied Skills in Active Directory, Azure, Entra ID, and AI agents.</p>
     <div class="hero-btns fade-up d4">
       <a href="#projects" class="btn-primary" data-i18n="hero_btn1">VIEW MY WORK</a>
@@ -191,7 +259,7 @@ footer span{color:var(--gold)}
   <div class="divider"></div>
   <p class="section-sub" data-i18n="certs_sub">Industry-recognized credentials validating real-world infrastructure and cloud expertise.</p>
   <div class="cert-grid">
-    <a class="cert-card" href="https://learn.microsoft.com/en-us/credentials/certifications/microsoft-365-fundamentals/" target="_blank">
+    <a class="cert-card" href="https://learn.microsoft.com/en-us/credentials/certifications/microsoft-365-fundamentals/" target="_blank" rel="noopener noreferrer">
       <div class="cert-icon ms">☁️</div>
       <div class="cert-name">Microsoft 365 Fundamentals</div>
       <div class="cert-org">Microsoft — MS-900</div>
@@ -261,18 +329,21 @@ footer span{color:var(--gold)}
       <span class="project-tag" data-i18n="ptag4">LOCAL AI</span>
       <div class="project-name" data-i18n="pname4">Local LLM Orchestration</div>
       <p class="project-desc" data-i18n="pdesc4">Configured and optimized local AI interfaces utilizing Msty Studio and Ollama. Managed deployments of models including Gemma 4, Qwen 2.5, and DeepSeek for localized code generation.</p>
+      <div class="project-links"><a href="https://github.com/marcgendron80/local-llm-orchestration" target="_blank" rel="noopener noreferrer" class="project-link" data-i18n="proj_link">View on GitHub →</a></div>
       <div class="tech-tags"><span class="tech-tag">Msty Studio</span><span class="tech-tag">Ollama</span><span class="tech-tag">LLMs</span></div>
     </div>
     <div class="project-card">
       <span class="project-tag" data-i18n="ptag5">OPTIMIZATION</span>
       <div class="project-name" data-i18n="pname5">Resource-Optimized System Management</div>
       <p class="project-desc" data-i18n="pdesc5">Leveraged Terminal User Interfaces (TUIs) and Command Line Interfaces (CLIs) such as Elia and Oterm to execute system management tasks while minimizing hardware resource consumption.</p>
+      <div class="project-links"><a href="https://github.com/marcgendron80/tui-system-management" target="_blank" rel="noopener noreferrer" class="project-link" data-i18n="proj_link">View on GitHub →</a></div>
       <div class="tech-tags"><span class="tech-tag">Elia</span><span class="tech-tag">Oterm</span><span class="tech-tag">TUI</span></div>
     </div>
     <div class="project-card">
       <span class="project-tag" data-i18n="ptag6">DOCUMENTATION</span>
       <div class="project-name" data-i18n="pname6">Markdown Knowledge Base Architecture</div>
       <p class="project-desc" data-i18n="pdesc6">Maintained comprehensive technical documentation and bookmark management using an Obsidian Sync pipeline integrated with Raindrop.io for structured information retrieval.</p>
+      <div class="project-links"><a href="https://github.com/marcgendron80/obsidian-raindrop-pipeline" target="_blank" rel="noopener noreferrer" class="project-link" data-i18n="proj_link">View on GitHub →</a></div>
       <div class="tech-tags"><span class="tech-tag">Obsidian</span><span class="tech-tag">Raindrop.io</span><span class="tech-tag">Markdown</span></div>
     </div>
   </div>
@@ -311,19 +382,19 @@ footer span{color:var(--gold)}
   <div class="divider"></div>
   <p class="section-sub" data-i18n="links_sub">Where my work lives — version control, credentials, and professional presence.</p>
   <div class="links-grid">
-    <a href="https://github.com/marcgendron80" target="_blank" class="link-btn">
+    <a href="https://github.com/marcgendron80" target="_blank" rel="noopener noreferrer" class="link-btn">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.16c-3.34.73-4.04-1.6-4.04-1.6-.54-1.38-1.33-1.75-1.33-1.75-1.08-.75.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.8 1.3 3.48.99.1-.77.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.004 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.65 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.3c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
       GitHub
     </a>
-    <a href="https://www.linkedin.com/in/marcgendrontech" target="_blank" class="link-btn">
+    <a href="https://www.linkedin.com/in/marcgendrontech" target="_blank" rel="noopener noreferrer" class="link-btn">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
       LinkedIn
     </a>
-    <a href="https://learn.microsoft.com/en-ca/users/marc-gendron-tech/" target="_blank" class="link-btn">
+    <a href="https://learn.microsoft.com/en-ca/users/marc-gendron-tech/" target="_blank" rel="noopener noreferrer" class="link-btn">
       <svg width="22" height="22" viewBox="0 0 23 23" fill="currentColor"><path d="M0 0h11v11H0zm12 0h11v11H12zM0 12h11v11H0zm12 0h11v11H12z"/></svg>
       MS Learn
     </a>
-    <a href="https://www.credly.com/badges/dae90fe1-f5e9-4cb3-a6f5-a156cf95f238/public_url" target="_blank" class="link-btn">
+    <a href="https://www.credly.com/badges/dae90fe1-f5e9-4cb3-a6f5-a156cf95f238/public_url" target="_blank" rel="noopener noreferrer" class="link-btn">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
       Credly
     </a>
@@ -343,7 +414,7 @@ footer span{color:var(--gold)}
 </section>
 
 <footer>
-  <p>© 2026 <span>Marc</span> · System Architect Validator · <span data-i18n="footer_text">Built with precision. Hosted with intent.</span></p>
+  <p>© 2026 <span>Marc Gendron</span> · <span data-i18n="footer_role">Network Technician</span> · <span data-i18n="footer_text">Built with precision. Hosted with intent.</span></p>
 </footer>
 
 <script>
@@ -354,6 +425,7 @@ const t={
     nav_education:'Education',nav_contact:'Contact',nav_hire:'CONTACT ME',
     hero_sub:'IT Technician at a Montreal-based MSP, I work daily on Microsoft 365, Entra ID, and Active Directory environments for SMB clients. I handle endpoint deployment and compliance via Intune. Certified MS-900, AEC Network Management, and Microsoft Applied Skills in Active Directory, Azure, Entra ID, and AI agents.',
     hero_btn1:'VIEW MY WORK',hero_btn2:'GET IN TOUCH',
+    h1_a:'NETWORK',h1_b:'TECHNICIAN',
     stat1:'CERTIFICATIONS',stat2:'IN PROGRESS',stat3:'CURIOSITY',
     certs_tag:'✦ Credentials',certs_title:'Certifications',
     certs_sub:'Industry-recognized credentials validating real-world infrastructure and cloud expertise.',
@@ -362,7 +434,7 @@ const t={
     skills_tag:'✦ Arsenal',skills_title:'Technical Skills',
     skills_sub:'Hands-on expertise across cloud infrastructure, identity management, device management, and systems administration.',
     skill_ai:'Local AI (Msty Studio, Ollama)',skill_obsidian:'Documentation (Obsidian)',
-    skill_infra:'Infrastructure Config',skill_tui:'CLI & TUI Environments (Elia, Oterm)',skill_sec:'Security Hardening',
+    skill_infra:'Infrastructure Config',skill_tui:'CLI & TUI (Elia, Oterm)',skill_sec:'Security Hardening',
     proj_tag:'✦ Lab Work',proj_title:'Tech Projects & Labs',
     proj_sub:'Real-world infrastructure projects, automation pipelines, and system architecture work.',
     ptag4:'LOCAL AI',pname4:'Local LLM Orchestration',
@@ -371,6 +443,7 @@ const t={
     pdesc5:'Leveraged Terminal User Interfaces (TUIs) and Command Line Interfaces (CLIs) such as Elia and Oterm to execute system management tasks while minimizing hardware resource consumption.',
     ptag6:'DOCUMENTATION',pname6:'Markdown Knowledge Base Architecture',
     pdesc6:'Maintained comprehensive technical documentation and bookmark management using an Obsidian Sync pipeline integrated with Raindrop.io for structured information retrieval.',
+    proj_link:'View on GitHub →',
     edu_tag:'✦ Foundation',edu_title:'Education',
     edu_sub:'Academic background underpinning real-world infrastructure and systems expertise.',
     edu1_degree:'AEC — Computer Networking',edu1_school:"Attestation d'études collégiales · Québec, Canada",
@@ -380,13 +453,14 @@ const t={
     links_sub:"Where my work lives — version control, credentials, and professional presence.",
     contact_tag:'✦ Connect',contact_title:'Get In Touch',
     contact_sub:"Open to infrastructure roles, architecture consulting, and technical collaboration. Let's build something solid.",
-    contact_btn:'SEND MESSAGE',footer_text:'Built with precision. Hosted with intent.'
+    contact_btn:'SEND MESSAGE',footer_role:'Network Technician',footer_text:'Built with precision. Hosted with intent.'
   },
   fr:{
     nav_certs:'Certifications',nav_skills:'Compétences',nav_projects:'Projets',
     nav_education:'Formation',nav_contact:'Contact',nav_hire:'ME CONTACTER',
     hero_sub:"Technicien informatique au sein d'un MSP à Montréal, j'interviens quotidiennement sur des environnements Microsoft 365, Entra ID et Active Directory pour une clientèle PME. Je gère le déploiement et la conformité des postes via Intune. Certifié MS-900, AEC Gestion des réseaux, et Microsoft Applied Skills en Active Directory, Azure, Entra ID et agents IA.",
     hero_btn1:'VOIR MES PROJETS',hero_btn2:'ME CONTACTER',
+    h1_a:'TECHNICIEN',h1_b:'RÉSEAU',
     stat1:'CERTIFICATIONS',stat2:'EN COURS',stat3:'CURIOSITÉ',
     certs_tag:'✦ Accréditations',certs_title:'Certifications',
     certs_sub:"Certifications reconnues par l'industrie validant une expertise concrète en infrastructure et en infonuagique.",
@@ -395,7 +469,7 @@ const t={
     skills_tag:'✦ Arsenal',skills_title:'Compétences Techniques',
     skills_sub:"Expertise pratique en infrastructure infonuagique, gestion des identités, gestion des appareils et administration des systèmes.",
     skill_ai:'IA Locale (Msty Studio, Ollama)',skill_obsidian:'Documentation (Obsidian)',
-    skill_infra:'Config. Infrastructure',skill_tui:'Environnements CLI & TUI (Elia, Oterm)',skill_sec:'Durcissement Sécurité',
+    skill_infra:'Config. Infrastructure',skill_tui:'CLI & TUI (Elia, Oterm)',skill_sec:'Durcissement Sécurité',
     proj_tag:'✦ Travaux de Lab',proj_title:'Projets Tech & Laboratoires',
     proj_sub:"Projets d'infrastructure réels, pipelines d'automatisation et travaux d'architecture système.",
     ptag4:'IA LOCALE',pname4:'Orchestration LLM Locale',
@@ -404,8 +478,9 @@ const t={
     pdesc5:"Utilisation d'interfaces utilisateur de terminal (TUI) et de lignes de commande (CLI) telles qu'Elia et Oterm pour exécuter des tâches de gestion système tout en minimisant la consommation de ressources matérielles.",
     ptag6:'DOCUMENTATION',pname6:'Architecture de Connaissances Markdown',
     pdesc6:"Maintenance d'une documentation technique complète et gestion des favoris via un pipeline Obsidian Sync intégré à Raindrop.io pour la recherche d'informations structurées.",
+    proj_link:'Voir sur GitHub →',
     edu_tag:'✦ Formation',edu_title:'Éducation',
-    edu_sub:"Formation académique soutenant une expertise concrète en infrastructure et en sysèmes.",
+    edu_sub:"Formation académique soutenant une expertise concrète en infrastructure et en systèmes.",
     edu1_degree:'AEC — Réseautique Informatique',edu1_school:"Attestation d'études collégiales · Québec, Canada",
     edu1_year:'Fondamentaux de Réseautique · Routage & Commutation · Principes de Sécurité',
     edu2_degree:'Formation Technique Autodidacte',edu2_year:'Azure · Active Directory · Python · Architecture Réseau',
@@ -413,27 +488,48 @@ const t={
     links_sub:"Où vit mon travail — contrôle de version, accréditations et présence professionnelle.",
     contact_tag:'✦ Contact',contact_title:'Me Contacter',
     contact_sub:"Ouvert aux postes en infrastructure, consultation en architecture et collaboration technique. Construisons quelque chose de solide.",
-    contact_btn:'ENVOYER UN MESSAGE',footer_text:'Construit avec précision. Hébergé avec intention.'
+    contact_btn:'ENVOYER UN MESSAGE',footer_role:'Technicien Réseau',footer_text:'Construit avec précision. Hébergé avec intention.'
   }
 };
 
 let lang='en';
-function setLang(l){
+function setLang(l,save=true){
+  if(!t[l])l='en';
   lang=l;
   document.querySelectorAll('[data-i18n]').forEach(el=>{
     const k=el.getAttribute('data-i18n');
     if(t[l][k])el.textContent=t[l][k];
   });
   document.querySelectorAll('.lang-btn').forEach(b=>{
-    b.classList.toggle('active',b.textContent===l.toUpperCase());
+    b.classList.toggle('active',b.dataset.lang===l);
   });
   document.documentElement.lang=l;
+  if(save){try{localStorage.setItem('lang',l)}catch(e){}}
 }
+// restore saved language, else auto-detect from browser
+(function(){
+  let saved=null;try{saved=localStorage.getItem('lang')}catch(e){}
+  const pref=saved||(((navigator.language||'en').toLowerCase().startsWith('fr'))?'fr':'en');
+  if(pref!=='en')setLang(pref,false);
+})();
+
+// ── MOBILE NAV ──
+const menuBtn=document.getElementById('menuBtn'),navLinks=document.getElementById('navLinks');
+menuBtn.addEventListener('click',()=>{
+  const open=navLinks.classList.toggle('open');
+  menuBtn.classList.toggle('open',open);
+  menuBtn.setAttribute('aria-expanded',open);
+});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  navLinks.classList.remove('open');menuBtn.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');
+}));
 
 // ── PARTICLE CANVAS ──
 const canvas=document.getElementById('bg'),ctx=canvas.getContext('2d');
+const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 let W,H,particles=[];
-function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;
+  if(reduceMotion&&particles.length){particles.forEach(p=>p.draw());drawLines()}}
 resize();window.addEventListener('resize',resize);
 class P{
   constructor(){this.reset()}
@@ -456,7 +552,8 @@ class P{
     ctx.fillStyle=this.color+this.a*.6+')';ctx.fill();
   }
 }
-for(let i=0;i<120;i++)particles.push(new P());
+const N=window.innerWidth<768?45:120; // lighter particle field on mobile
+for(let i=0;i<N;i++)particles.push(new P());
 function drawLines(){
   for(let i=0;i<particles.length;i++)
     for(let j=i+1;j<particles.length;j++){
@@ -471,16 +568,18 @@ function drawLines(){
     }
 }
 function animate(){ctx.clearRect(0,0,W,H);particles.forEach(p=>{p.update();p.draw()});drawLines();requestAnimationFrame(animate)}
-animate();
+if(reduceMotion){particles.forEach(p=>p.draw());drawLines()}else{animate()}
 
 // ── SCROLL FADE ──
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})
 },{threshold:.1});
-document.querySelectorAll('.cert-card,.skill-chip,.project-card,.edu-item,.link-btn').forEach(el=>{
-  el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .5s ease, transform .5s ease';
-  obs.observe(el);
-});
+if(!reduceMotion){
+  document.querySelectorAll('.cert-card,.skill-chip,.project-card,.edu-item,.link-btn').forEach(el=>{
+    el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .5s ease, transform .5s ease';
+    obs.observe(el);
+  });
+}
 </script>
 </body>
 </html>
